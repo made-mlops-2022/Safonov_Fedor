@@ -13,7 +13,7 @@ Train:
 ~~~
 python3 -m src.train_pipeline configs/train_config.yaml
 ~~~
-Test:
+Predict:
 ~~~
 python3 -m src.predict_pipeline configs/predict_config.yaml
 ~~~

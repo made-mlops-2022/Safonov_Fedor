@@ -1,0 +1,31 @@
+on:
+  push:
+    branches:
+      - hw1
+
+jobs:
+  my_checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Git clone my repo
+      uses: actions/checkout@v1
+
+    - name: prepare dependencies
+      run: |
+        make test_environment
+        make requirements
+
+    - name: Linter
+      run: make lint
+
+    - name: Tests
+      run: python -m unittest
+
+    - name: Train pipeline run
+      run: python3 -m src.train_pipeline configs/train_config.yaml
+
+    - name: Test pipeline run
+      run: python3 -m src.predict_pipeline configs/predict_config.yaml
+
+
