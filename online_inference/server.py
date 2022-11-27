@@ -40,13 +40,5 @@ def predict(request: InputDataRequest):
     return make_predict(request, model)
 
 
-FEATURES = ["age", "sex", "cp", "trestbps", "chol", "fbs", "restecg",
-            "thalach", "exang", "oldpeak", "slope", "ca", "thal", "id"]
-
-DATA = [[69.0, 1.0, 0.0, 140.0, 239.0, 1.0, 2.0,
-        151.0, 0.0, 1.8, 2.0, 0.0, 1.0, 6.0],
-       [71.0, 0.5, 0.0, 145.0, 200.0, 1.0, 2.0,
-        151.0, 0.0, 1.8, 2.0, 0.0, 1.0, 8.0]]
-
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=5050)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
