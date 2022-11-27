@@ -2,10 +2,12 @@ FROM python:3.8
 
 WORKDIR /app
 
-COPY . .
+COPY requirements.txt .
+RUN pip install -r requirements.txt  # Запускается, когда строим образ
 
 ENV PATH_TO_MODEL=models/model.pkl
-RUN pip install -r requirements.txt  # Запускается, когда строим образ
+
+COPY . .
 
 EXPOSE 8000
 
