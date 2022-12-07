@@ -26,7 +26,7 @@ with DAG(
         start_date=days_ago(5),
 ) as dag:
     generate = DockerOperator(
-        image="airflow-generateerate",  # Имя контейнера
+        image="airflow-generate",  # Имя контейнера
         command="/data/{{ yesterday_ds }}/raw/data.csv",  # Параметр скрипта
         network_mode="bridge",  # Соединяем локальную dir с dir в докере
         task_id="docker-airflow-generate",
